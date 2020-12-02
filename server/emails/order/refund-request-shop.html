@@ -1,0 +1,29 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello,</p>
+
+<p>Your customer <strong>{{customer.name}}</strong> has requested refund for order #{{subOrder.trackingCode}}</p>
+
+<p><strong>Reason: </strong> {{refundRequest.reason}}</p>
+
+<table class="table">
+  <tr>
+    <td><strong>Product</strong></td>
+    <td>{{subOrder.productDetails.name}}</td>
+  </tr>
+  <tr>
+    <td><strong>Quantity</strong></td>
+    <td>{{subOrder.quantity|number}}</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td>{{subOrder.currency}} {{subOrder.totalPrice|money}}</td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>{{subOrder.status}}</td>
+  </tr>
+</table>
+
+{% endblock %}

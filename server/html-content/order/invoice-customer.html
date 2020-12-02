@@ -1,0 +1,43 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Your new order #{{orderDetail.trackingCode}}</strong></p>
+
+<table class="table">
+  <tr>
+    <td><strong>Product</strong></td>
+    <td>{{orderDetail.productDetails.name}}</td>
+  </tr>
+  <tr>
+    <td><strong>Quantity</strong></td>
+    <td>{{orderDetail.quantity|number}}</td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td>{{orderDetail.userCurrency}} {{orderDetail.userTotalPrice|money}}</td>
+  </tr>
+  <tr>
+    <td><strong>Status</strong></td>
+    <td>{{orderDetail.status}}</td>
+  </tr>
+  <tr>
+    <td><strong>Note</strong></td>
+    <td>{{orderDetail.userNote}}</td>
+  </tr>
+  <tr>
+    <td><strong>Customer</strong></td>
+    <td>
+      <p><strong>First name: </strong> {{orderDetail.firstName}}</p>
+      <p><strong>Last name: </strong> {{orderDetail.lastName}}</p>
+      <p><strong>Email: </strong> {{orderDetail.email}}</p>
+      <p><strong>Phone number: </strong> {{orderDetail.phoneNumber}}</p>
+      <p><strong>Street address: </strong> {{orderDetail.streetAddress}}</p>
+      <p><strong>City: </strong> {{orderDetail.city}}</p>
+      <p><strong>State: </strong> {{orderDetail.state}}</p>
+      <p><strong>Country: </strong> {{orderDetail.country}}</p>
+      <p><strong>Zipcode: </strong> {{orderDetail.zipCode}}</p>
+      <p><strong>Shipping address: </strong> {{orderDetail.shippingAddress}}</p>
+    </td>
+  </tr>
+</table>
+{% endblock %}

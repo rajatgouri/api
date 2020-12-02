@@ -1,0 +1,12 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello,</p>
+
+<p>
+  {{user.name}} have sent complain. Please see bellow
+</p>
+<p><strong>Code</strong> {{ complain.code }}</p>
+<p><strong>Content</strong> {{ complain.content }}</p>
+
+{% endblock %}

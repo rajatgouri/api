@@ -1,0 +1,22 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello,</p>
+
+<p>
+  New shop has registered as seller system. Please go to <a href="{{shopUpdateUrl}}">admin page and verify</a>.
+</p>
+
+<p>
+  <h3>Shop info</h3>
+  <strong>Name: </strong> <a href="{{shopUpdateUrl}}">{{shop.name}}</a> <br />
+  <strong>Email: </strong> {{shop.email}} <br />
+  <strong>Phone number: </strong> {{shop.phoneNumber}} <br />
+  <strong>Address: </strong> {{shop.address}} <br />
+  <strong>City: </strong> {{shop.city}} <br />
+  <strong>State: </strong> {{shop.state}} <br />
+  <strong>Zipcode: </strong> {{shop.zipcode}} <br />
+  <strong>Country: </strong> {{shop.country}} <br />
+</p>
+
+{% endblock %}

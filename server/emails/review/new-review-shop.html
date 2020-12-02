@@ -1,0 +1,18 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello,</p>
+
+<p>
+  <strong>{{user.name}}</strong> has reviewed your shop
+</p>
+
+<p>
+  <strong>Shop name</strong> {{shop.name}}
+</p>
+<p>
+  <strong>Rate</strong> {{review.rating}} <br />
+  <strong>Comment</strong> {{review.comment}}
+</p>
+
+{% endblock %}

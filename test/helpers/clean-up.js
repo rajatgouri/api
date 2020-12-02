@@ -1,0 +1,26 @@
+module.exports = async () => {
+  await DB.Config.remove();
+  await DB.User.remove();
+  await DB.Post.remove();
+  await DB.PostCategory.remove();
+  await DB.Media.remove();
+  await DB.MediaCategory.remove();
+  await DB.Banner.remove();
+  await DB.I18nLanguage.remove();
+  await DB.I18nText.remove();
+  await DB.I18nTranslation.remove();
+  await DB.Contact.remove();
+  await DB.Shop.remove();
+  await DB.Product.remove();
+  await DB.ProductCategory.remove();
+  await DB.ProductOption.remove();
+  await DB.Order.remove();
+  await DB.OrderDetail.remove();
+  await DB.Wishlist.remove();
+  await DB.Complain.remove();
+  await DB.Coupon.remove();
+  await DB.ShopFeaturedPackage.remove();
+  await DB.PayoutAccount.remove();
+  await DB.PayoutItem.remove();
+  await DB.PayoutRequest.remove();
+};

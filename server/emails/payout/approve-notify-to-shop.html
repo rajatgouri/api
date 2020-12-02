@@ -1,0 +1,21 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello</p>
+<p>Your payout request #{{payoutRequest.code}} has been approved</p>
+
+<p>
+  <strong>Code</strong>: {{payoutRequest.code}} <br />
+  <strong>Total</strong>: {{payoutRequest.total|money}} <br />
+  <strong>Commission</strong>: {{payoutRequest.commission|money}} <br />
+  <strong>Shop balance</strong>: {{payoutRequest.shopBalance|money}} <br />
+  <strong>Site balance</strong>: {{payoutRequest.siteBalance|money}} <br />
+  <strong>COD balance</strong>: {{payoutRequest.codBalance|money}} <br />
+  <strong>Non COD balance</strong>: {{payoutRequest.nonCodBalance|money}} <br />
+</p>
+
+<p>
+  <strong>Note: </strong> {{payoutRequest.note}}
+</p>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello {{customer.name}},</p>
+
+<p>Your order <a href="{{orderLink}}">#{{order.trackingCode}}</a> details</strong></p>
+
+<div>
+  <h3>Customer information</h3>
+  <p><strong>First name: </strong> {{order.firstName}}</p>
+  <p><strong>Last name: </strong> {{order.lastName}}</p>
+  <p><strong>Email: </strong> {{order.email}}</p>
+  <p><strong>Phone number: </strong> {{order.phoneNumber}}</p>
+  <p><strong>Street address: </strong> {{order.streetAddress}}</p>
+  <p><strong>City: </strong> {{order.city}}</p>
+  <p><strong>State: </strong> {{order.state}}</p>
+  <p><strong>Country: </strong> {{order.country}}</p>
+  <p><strong>Zipcode: </strong> {{order.zipCode}}</p>
+  <p><strong>Shipping address: </strong> {{order.shippingAddress}}</p>
+</div>
+
+{% for subOrder in orderDetails %}
+<div>
+  <h3>Sub order #{{subOrder.trackingCode}}</h3>
+
+  <table class="table">
+    <tr>
+      <td><strong>Product</strong></td>
+      <td>{{subOrder.productDetails.name}}</td>
+    </tr>
+    <tr>
+      <td><strong>Quantity</strong></td>
+      <td>{{subOrder.quantity|number}}</td>
+    </tr>
+    <tr>
+      <td><strong>Shop</strong></td>
+      <td>{{subOrder.shop.name}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>{{subOrder.userCurrency}} {{subOrder.userTotalPrice|money}}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{subOrder.status}}</td>
+    </tr>
+    <tr>
+      <td>Note</td>
+      <td>{{subOrder.userNote}}</td>
+    </tr>
+  </table>
+</div>
+{% endfor %}
+
+{% endblock %}

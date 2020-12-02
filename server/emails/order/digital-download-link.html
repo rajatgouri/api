@@ -1,0 +1,25 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello,</p>
+
+<p>Please check download link below for your digital product #{{orderDetail.trackingCode}}</p>
+
+<p><strong>Shop: </strong> {{shop.name}}</p>
+
+<table class="table">
+  <tr>
+    <td><strong>Product</strong></td>
+    <td>{{orderDetail.productDetails.name}}</td>
+  </tr>
+  <tr>
+    <td><strong>Download link</strong></td>
+    <td><a href="{{downloadLink}}">{{downloadLink}}</a></td>
+  </tr>
+  <tr>
+    <td><strong>Status</strong></td>
+    <td>Completed</td>
+  </tr>
+</table>
+
+{% endblock %}

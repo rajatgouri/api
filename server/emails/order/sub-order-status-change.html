@@ -1,0 +1,27 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello {{user.name}},</p>
+
+<p>Your sub order <a href="{{orderLink}}">#{{subOrder.trackingCode}}</a> has change status to: <strong>{{subOrder.status}}</strong></p>
+
+<table class="table">
+  <tr>
+    <td><strong>Product</strong></td>
+    <td>{{subOrder.productDetails.name}}</td>
+  </tr>
+  <tr>
+    <td><strong>Quantity</strong></td>
+    <td>{{subOrder.quantity|number}}</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td>{{subOrder.userCurrency}} {{subOrder.userTotalPrice|money}}</td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>{{subOrder.status}}</td>
+  </tr>
+</table>
+
+{% endblock %}

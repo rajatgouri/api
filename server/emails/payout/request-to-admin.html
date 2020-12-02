@@ -1,0 +1,74 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+<p>Hello</p>
+<p>You have a new payout request from {{shop.name}}</p>
+
+<p>
+  <strong>Code</strong>: {{payoutRequest.code}} <br />
+  <strong>Total</strong>: {{payoutRequest.total|money}} <br />
+  <strong>Commission</strong>: {{payoutRequest.commission|money}} <br />
+  <strong>Shop balance</strong>: {{payoutRequest.shopBalance|money}} <br />
+  <strong>Site balance</strong>: {{payoutRequest.siteBalance|money}} <br />
+  <strong>COD balance</strong>: {{payoutRequest.codBalance|money}} <br />
+  <strong>Non COD balance</strong>: {{payoutRequest.nonCodBalance|money}} <br />
+</p>
+
+<p>
+  <h3>Payout account information</h3>
+  {% if payoutRequest.payoutAccount.type === 'paypal' %}
+  <strong>Type</strong>: Paypal <br />
+  <strong>Paypal account</strong>: payoutRequest.payoutAccount.paypalAccount
+  {% endif %}
+  {% if payoutRequest.payoutAccount.type === 'bank-account' %}
+  <strong>Account holder name</strong>: {{payoutRequest.payoutAccount.accountHolderName}} <br />
+  <strong>Account number</strong>: {{payoutRequest.payoutAccount.accountNumber}} <br />
+  <strong>IBAN</strong>: {{payoutRequest.payoutAccount.iban}} <br />
+  <strong>Bank name</strong>: {{payoutRequest.payoutAccount.bankName}} <br />
+  <strong>Bank address</strong>: {{payoutRequest.payoutAccount.bankAddress}} <br />
+  <strong>Sort code</strong>: {{payoutRequest.payoutAccount.sortCode}} <br />
+  <strong>Routing number</strong>: {{payoutRequest.payoutAccount.routingNumber}} <br />
+  <strong>SWIFT code</strong>: {{payoutRequest.payoutAccount.swiftCode}} <br />
+  <strong>IFSC code</strong>: {{payoutRequest.payoutAccount.ifscCode}} <br />
+  <strong>Routing code</strong>: {{payoutRequest.payoutAccount.routingCode}}
+  {% endif %}
+</p>
+
+<p>
+  <strong>Orders details</strong>
+</p>
+
+{% for subOrder in orders %}
+<div>
+  <h3>Sub order #{{subOrder.trackingCode}}</h3>
+
+  <table class="table">
+    <tr>
+      <td><strong>Product</strong></td>
+      <td>{{subOrder.productDetails.name}}</td>
+    </tr>
+    <tr>
+      <td><strong>Quantity</strong></td>
+      <td>{{subOrder.quantity|number}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>{{subOrder.currency}} {{subOrder.userTotalPrice|money}}</td>
+    </tr>
+    <tr>
+      <td>Balance</td>
+      <td>{{subOrder.currency}} {{subOrder.balance|money}}</td>
+    </tr>
+    <tr>
+      <td>Commission</td>
+      <td>{{subOrder.currency}} {{subOrder.commission|money}}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{subOrder.status}}</td>
+    </tr>
+  </table>
+</div>
+{% endfor %}
+
+{% endblock %}
